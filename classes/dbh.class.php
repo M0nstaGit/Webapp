@@ -1,5 +1,6 @@
-<?php
 
+<?php
+#test
 class dbh {
 
     private $dbHost = "ID329040_sportbud.db.webhosting.be";
