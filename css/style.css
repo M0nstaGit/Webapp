@@ -1,0 +1,232 @@
+/* Main css for webapp */
+
+@font-face {
+    font-family: "Raleway";
+    src: url("./../../WebApp/assets/font/Raleway/Raleway-VariableFont_wght.ttf");
+    font-weight: 600;
+}
+
+body {
+    overflow: hidden; /*this is to dissable scrolling*/
+}
+
+.header {
+    position: fixed;
+    width: 95%;
+    height: 5%;
+    margin-top: 20px;
+    top: 20px;    margin-left: auto;
+    margin-right: auto;
+    left: 50%;
+    margin-left: -47.5%;
+}
+
+.sportbudlogo {
+    font-family: "Raleway";
+    font-size: 30px;
+    transition: color 0.25s;
+    color: black;
+    text-decoration: none;
+}
+
+.sportbudlogo:hover {
+    color: #FF4363;
+}
+
+h1 {
+    font-family: "Raleway";
+    font-size: 4vw;
+    margin: 0px;
+    transition: color 0.25s;
+}
+
+h1:hover{
+    animation: shake 0.25s;
+    color: #FF4363;
+}
+
+h2 {
+    font-family: "Raleway";
+    font-size: 2vw;
+    margin: 0px;    
+    transition: color 0.25s;
+}
+
+h2:hover{
+    animation: shake 0.25s;
+    color: #FF4363;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.wrapperwelcomemessage {
+    position: absolute;
+    left: 5%;
+    margin-top: 16vh;
+    width: 50%;
+}
+
+.btn {
+    border: none;
+    background-color: white;
+    text-decoration: none;
+}
+
+btn:hover {
+    cursor: pointer;
+}
+
+.btn img {
+    text-align: right;
+    height: 25px;
+    margin: 7px;
+}
+
+.leftfloat {
+    float: left;
+}
+
+.rightfloat {
+    float: right;
+}
+
+.bottomscreen {
+    position:fixed;
+    bottom:0px;
+    width: 100%;
+    left: 0px;
+    z-index: 2;
+}
+
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Calendar */
+
+.calendar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15vh;
+    width: 40%;
+}
+
+.fc-button-group {
+    background-color: #FF4363;
+}
+
+.fc-prev-button {
+    background-color: #FF4363;
+}
+
+.fc-prev-button {
+    color: #FF4363;
+}
+
+
+/* messages */
+
+.messages{
+    overflow: scroll;
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 50%;
+    height: 50%;
+}
+
+.sendMessages{
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 50%;
+    height: 25px;
+}
+.messageInput{
+    width: 75%;
+}
+
+
+/* width scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  /* Track scrollbar */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle scrollbar */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover scrollbar */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li{
+    display:inline-block;
+    clear: both;
+    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .recieve{
+    background: #eee;
+    float: left;
+  }
+
+  .send{
+    float: right;
+    background: #0084ff;
+    color: #fff;
+  }
+
+  .recieve + .send{
+    border-bottom-right-radius: 5px;
+  }
+
+  .send + .send{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .send:last-of-type {
+    border-bottom-right-radius: 30px;
+  }
