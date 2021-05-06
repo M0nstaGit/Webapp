@@ -1,9 +1,13 @@
 <?php
     session_start();
+    include 'includes/class-autoload.inc.php';
 
     if(empty($_SESSION['username'])){
         header("Location: login.php");
     }
+
+    $test = new calendar();
+    $test->eventsToJSON();
 ?>
 <!DOCTYPE html>
 <html lang='en'>
@@ -14,76 +18,24 @@
     <script src='assets/fullcalendar/main.js'></script>
     <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
+        var json = <?php echo json_encode($_SESSION['array']);?>;
+        console.log(json);
+
+        document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialDate: '2020-09-12',
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
           },
+        eventColor: '#FF4363',
         editable: true,
         selectable: true,
         businessHours: true,
         dayMaxEvents: true, // allow "more" link when too many events
-        events: [
-            {
-            title: 'Mountainbike met Ronny',
-            start: '2020-09-01'
-            },
-            {
-            title: 'Rust',
-            start: '2020-09-07',
-            end: '2020-09-10'
-            },
-            {
-            groupId: 999,
-            title: 'Tennis in Mechelen',
-            start: '2020-09-09T16:00:00'
-            },
-            {
-            groupId: 999,
-            title: 'Tennis in Mechelen',
-            start: '2020-09-16T16:00:00'
-            },
-            {
-            title: 'Vergadering sportgroep',
-            start: '2020-09-11',
-            end: '2020-09-13'
-            },
-            {
-            title: 'Meeting',
-            start: '2020-09-12T10:30:00',
-            end: '2020-09-12T12:30:00'
-            },
-            {
-            title: 'Lunch',
-            start: '2020-09-12T12:00:00'
-            },
-            {
-            title: 'Meeting',
-            start: '2020-09-12T14:30:00'
-            },
-            {
-            title: 'Happy Hour',
-            start: '2020-09-12T17:30:00'
-            },
-            {
-            title: 'Dinner',
-            start: '2020-09-12T20:00:00'
-            },
-            {
-            title: 'Verjaardag',
-            start: '2020-09-13T07:00:00'
-            },
-            {
-            title: 'Onze site',
-            url: 'https://sportbud.thlau.be/WebApp/calendar.php',
-            start: '2020-09-28'
-            }
-        ]
+        events: json
         });
 
         calendar.render();
@@ -93,28 +45,28 @@
   </head>
   <body>
     <?php include_once 'includes/header.php'?>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <form action="addEvent.php" method="POST">
-                <table >
-                    <tbody>
-                        <tr>
-                            <td><input type="text" id="title" name="title" placeholder="Title" required/></td>
-                        </tr>
-                        <tr>
-                            <td><input type="date" id="dt" name="dt" placeholder="Date and time" required/></td>
-                        </tr>
-                        <tr>
-                            <td><input type="submit" value="Add Event"/></td>
-                        </tr>   
-                    </tbody>
-                </table>
-            </form>
+    <div class="calendarDiv">
+        <!-- Renders the calendar -->
+        <div class="calendar" id='calendar'></div>
 
-    <div class="calendar" id='calendar'></div>
+        <!-- Sends post to OO -->
+        <form action="./addEvent.php" class="formEvent" method="POST">
+            <p>Add an event to your calendar!</p>
+            <table >
+                <tbody>
+                    <tr>
+                        <td><input type="text" id="title" name="title" class="inputCalendar" placeholder="Title of the event..." required/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" id="dt" name="dt" class="inputCalendar" placeholder="Date and time..." required/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" class="addEventBtn" class="inputCalendar" value="Add Event"/></td>
+                    </tr>   
+                </tbody>
+            </table>
+        </form>
+    </div>
     <footer>
       <img class="bottomscreen" src="./images/bot.png" alt="bottom">
     </footer>
