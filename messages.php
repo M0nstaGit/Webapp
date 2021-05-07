@@ -42,7 +42,7 @@
             text = '<div class="friendDisplay">';
             for (i = 0; i < fLen; i++) {
             
-                text += '<a href="messagesPersonal.php" id="linkMessagesPersonal" class="friend">' + messages[i][1] + "</a>";
+                text += '<a href="messagesPersonal.php" id="linkMessagesPersonal" class="friend">' + friends[i][1] + "</a>";
                 
             }
             text += "</div>";

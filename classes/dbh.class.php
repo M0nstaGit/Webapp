@@ -27,10 +27,10 @@ class dbh {
 
     protected function connectMessages(){
         $dsn = 'mysql:host=' . $this->dbHostMessages . ';dbname=' . $this->dbNameMessages;
-        $pdo = new PDO($dsn, $this->dbUsernameMessages, $this->dbPasswordMessages);
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $pdoMessages = new PDO($dsn, $this->dbUsernameMessages, $this->dbPasswordMessages);
+        $pdoMessages->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-        return $pdo;
+        return $pdoMessages;
     }
  
 }
