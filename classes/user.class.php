@@ -1,5 +1,5 @@
 <?php
-
+//create class user that extends database
 class user extends dbh {
 
     public function getusers(){
