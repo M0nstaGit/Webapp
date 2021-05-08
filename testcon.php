@@ -9,3 +9,9 @@ $_SESSION['loginerror'] = 0;
 
 $testObj = new user();
 $testObj->checkpass($userNameInput,$passwordInput);
+
+
+$test = new calendar();
+$test->eventsToJSON();
+
+print_r($_SESSION['array']);

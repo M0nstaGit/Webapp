@@ -13,7 +13,8 @@
     $var10 = $_POST[gender];
     $var11 = $_POST[preferredGender];
     $var12 = $_POST[userName];
-  
+    
+    
     // The hash of the password that
     // can be stored in the database
     $hash = password_hash($var3, PASSWORD_BCRYPT);

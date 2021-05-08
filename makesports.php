@@ -1,12 +1,21 @@
 <?php 
         include 'includes/class-autoload.inc.php';
+        session_start();
+
+        $userobj = new user();
+        $userid = $userobj->getuserid();
+        
         if (isset($_POST['checkboxvar'])) 
         {
+            $sportobj = new user();
             foreach ($_POST['checkboxvar'] as $value){
-                echo "$value";
+                $sportobj->setsports($userid,$value);
             }
+            
         }
+        
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

@@ -1,7 +1,6 @@
-<!--test id's zijn id1:26  id2:30-->
 <?php
     session_start();
-    include 'includes/class-autoload.inc.php';
+
     if(empty($_SESSION['username'])){
         header("Location: login.php");
     }
@@ -23,31 +22,64 @@
     <body>
         <?php include_once 'includes/header.php'?>
         
-        <div class="messagePreview" id="messagePreview">
+        <div class="messages" id="messagelist">
         </div>
 
-       
+        <div class="sendMessages">
+        <!--sending message prototype-->
+        <table class="tableLogIn">
+                    <tbody>
+                        <tr>
+                            <td><label for="messageInput"></label></td>
+                            <td><input type="text" class="messageInput" name="messageInput" placeholder="message" required/></td>
+                       
+                            <td><input type="submit" value="send"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+        </div>
 
         <img class="bottomscreen" src="./images/bot.png" alt="bottom">
 
 
         <script>
-            var friends,flen,text,i;
+            const IdUser = 1;
+            const IdUser2 = 2;
+            var messages,mlen,text,i;
 
-            friends = [
-                ["30","test2"]
+            messages = [
+                [2,"by Other User"],
+                [2,"by Other User"],
+                [2,"by Other User"],
+                [1,"By this User, first"],
+                [1,"By this User, second"],
+                [1,"By this User, third"],
+                [2,"by Other User"],
+                [2,"by Other User"],
+                [2,"by Other User"],
+                [1,"By this User, first"],
+                [1,"By this User, second"],
+                [1,"By this User, third"]
             ];
-            fLen = friends.length;
+            mLen = messages.length;
             
-            text = '<div class="friendDisplay">';
-            for (i = 0; i < fLen; i++) {
+            text = "<ul>";
+            for (i = 0; i < mLen; i++) {
             
-                text += '<a href="messagesPersonal.php" id="linkMessagesPersonal" class="friend">' + friends[i][1] + "</a>";
-                
+            	if(messages[i][0]==IdUser){
+                	text += ' <li class="send">' + messages[i][1] + "</li>";
+                }
+                else if(messages[i][0]==IdUser2){
+                	text += '<li class="recieve">' + messages[i][1] + "</li>";
+                }
+                else{
+                	text += '<li class="recieve">' + "tis kapot" + "</li>";
+                }
             }
-            text += "</div>";
+            text += "</ul>";
 
-            document.getElementById("messagePreview").innerHTML = text;
+            document.getElementById("messagelist").innerHTML = text;
         </script>
     </body>
 </html>
