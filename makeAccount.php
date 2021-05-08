@@ -59,7 +59,7 @@
                             <td><input type="password" id="password" name="password" class="createAccField" placeholder="Password" required/></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" value="Create my account!" class="myButton"/></td>
+                            <td><input type="submit" value="Continue" class="myButton"/></td>
                         </tr>
                     </tbody>
                 </table>

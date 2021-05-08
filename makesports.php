@@ -1,3 +1,12 @@
+<?php 
+        include 'includes/class-autoload.inc.php';
+        if (isset($_POST['checkboxvar'])) 
+        {
+            foreach ($_POST['checkboxvar'] as $value){
+                echo "$value";
+            }
+        }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,24 +20,26 @@
     </head>
 
     <body>
-        <div class="container-buttons">
-          <ul class="ks-cboxtags">
-            <li><input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label for="checkboxOne">Rainbow Dash</label></li>
-            <li><input type="checkbox" id="checkboxTwo" value="Cotton Candy"><label for="checkboxTwo">Cotton Candy</label></li>
-            <li><input type="checkbox" id="checkboxThree" value="Rarity"><label for="checkboxThree">Rarity</label></li>
-            <li><input type="checkbox" id="checkboxFour" value="Moondancer"><label for="checkboxFour">Moondancer</label></li>
-            <li><input type="checkbox" id="checkboxFive" value="Surprise"><label for="checkboxFive">Surprise</label></li>
-            <li><input type="checkbox" id="checkboxSix" value="Twilight Sparkle"><label for="checkboxSix">Twilight Sparkle</label></li>
-            <li><input type="checkbox" id="checkboxSeven" value="Fluttershy"><label for="checkboxSeven">Fluttershy</label></li>
-            <li><input type="checkbox" id="checkboxEight" value="Derpy Hooves"><label for="checkboxEight">Derpy Hooves</label></li>
-            <li><input type="checkbox" id="checkboxNine" value="Princess Celestia"><label for="checkboxNine">Princess Celestia</label></li>
-            <li><input type="checkbox" id="checkboxTen" value="Gusty"><label for="checkboxTen">Gusty</label></li>
-            <li><input type="checkbox" id="checkboxEleven" value="Discord"><label for="checkboxEleven">Discord</label></li>
-            <li><input type="checkbox" id="checkboxTwelve" value="Clover"><label for="checkboxTwelve">Clover</label></li>
-            <li><input type="checkbox" id="checkboxThirteen" value="Baby Moondancer"><label for="checkboxThirteen">Baby Moondancer</label></li>
-            <li><input type="checkbox" id="checkboxFourteen" value="Medley"><label for="checkboxFourteen">Medley</label></li>
-            <li><input type="checkbox" id="checkboxFifteen" value="Firefly"><label for="checkboxFifteen">Firefly</label></li>
-          </ul>
+        <div class="NOG GEEN">
+            <form action="makesports.php" method="POST">
+                <p>In which sports do you like to participate?</p>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Fitness" value="Fitness"><label for="lan_Fitness"></label>Fitness</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Basket" value="Basket"><label for="lan_Basket"></label>Basket</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Voetbal" value="Voetbal"><label for="lan_Voetbal"></label>Voetbal</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Gevechtsport" value="Gevechtsport"><label for="lan_Gevechtsport"></label>Gevechtsport</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Cardio" value="Cardio"><label for="lan_Cardio"></label>Cardio</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Frisbee" value="Frisbee"><label for="lan_Frisbee"></label>Frisbee</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Rugby" value="Rugby"><label for="lan_Rugby"></label>Rugby</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Fietsen" value="Fietsen"><label for="lan_Fietsen"></label>Fietsen</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Hockey" value="Hockey"><label for="lan_Hockey"></label>Hockey</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Ijshockey" value="Ijshockey"><label for="lan_Ijshockey"></label>Ijshockey</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Zwemmen" value="Zwemmen"><label for="lan_Zwemmen"></label>Zwemmen</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Golf" value="Golf"><label for="lan_Golf"></label>Golf</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Skiën" value="Skiën"><label for="lan_Skiën"></label>Skiën</div>
+                <div><input type="checkbox" name="checkboxvar[]" id="lan_Snowboarden" value="Snowboarden"><label for="lan_Snowboarden"></label>Snowboarden</div>
+                <div><input type="submit" value="Create my account!" class="myButton"></div>
+            </form>
         </div>
+        
     </body>
 </html>

@@ -37,5 +37,5 @@
     $setuserobj = new user();
     $setuserobj->setuserstmt($var1,$var2,$hash,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12);
 
-    header("Location: login.php");
+    header("Location: makesports.php");
 ?>
