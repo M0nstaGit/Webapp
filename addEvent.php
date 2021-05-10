@@ -1,5 +1,5 @@
 <?php
-//test github
+//test githu
     session_start();
     include 'includes/class-autoload.inc.php';
 
