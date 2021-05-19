@@ -45,13 +45,13 @@
                     header("Location: makesports.php");
 
                 }else{
-                    echo "File is too powerfull!";
+                    $msg = "<span class='errorMessage'>File is too powerfull!</span>";
                 }
             }else{
-                echo "There was aan error uploading your file!";
+                $msg = "<span class='errorMessage'>There was aan error uploading your file!</span>";
             }
         }else{
-            echo "You cannot upload files of this type!";
+            $msg = "<span class='errorMessage'>You cannot upload files of this type!</span>";
         }
 
         
@@ -115,6 +115,11 @@
                         <tr>
                             <td><input type="file" class="createAccField" id="pictureURL" name="file"/></td>
                         </tr>
+                        <?php 
+                        if ($msg != NULL){
+                            echo'<tr><td><input type="file" class="createAccField" id="pictureURL" name="file"/>'.$msg.'</td></tr>';
+                        }
+                        ?>
                         <tr>
                             <td><select class="createAccField" id="gender" name="gender">
                                 <option value="0">Gender: Men</option>
