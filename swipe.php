@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include 'includes/class-autoload.inc.php';
 
     if(empty($_SESSION['username'])){
         header("Location: login.php");
@@ -17,15 +18,27 @@
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/loadanimation.css">
         <link rel="shortcut icon" type="image/png" href="./images/sportbud.png">
+        <script src="./js/swipe.js"></script>
     </head>
 
     <body>
         <?php include_once 'includes/header.php'?>
 
-        <div class="wrapperwelcomemessage">
-            <h1>Swiping functionality still needs to be added</h1>
-        </div>
-
+        <?php 
+            // $users = new swipe();
+            // $users->grabsUsers();
+        ?>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button onclick="getLocation()">Try It</button>
+        <p id="demo"></p>
+        <p>test</p>
         <img class="bottomscreen" src="./images/bot.png" alt="bottom">
     </body>
+    
 </html>

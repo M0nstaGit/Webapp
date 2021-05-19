@@ -19,7 +19,6 @@
         <link rel="stylesheet" href="./css/loadanimation.css">
         <link rel="shortcut icon" type="image/png" href="./images/sportbud.png">
     </head>
-
     <body>
         <?php include_once 'includes/header.php'?>
 
@@ -30,6 +29,11 @@
             echo "<h1>Welcome, $Name!</h1>";
             ?>
             <h2>You sported for $Time hours this week</h2>
+
+            <!-- LOG OUT -->
+            <form method="get" action="/logOut.php">
+                <button type="submit">Continue</button>
+            </form>
         </div>
 
         <!-- <div class="loadercontainer" id="hidediv">
