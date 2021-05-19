@@ -8,7 +8,7 @@
         $var3 = $_POST[password];
         $var4 = $_POST[birthdate];
         $var5 = $_POST[description];
-        $var6 = $_POST[locationId];
+        $var6 = $_SESSION['county'][name];
         $var7 = $_POST[email];
         $var8 = $_POST[phone];
         $var10 = $_POST[gender];
