@@ -37,7 +37,7 @@ class user extends dbh {
     // function with prepared statement
     public function setuserstmt($var1,$var2,$hash,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12){
 
-        $sql = "INSERT INTO user (userId, matchId, sportsId, firstName, lastName, password, birthdate, description, locationId, email, phone, pictureURL, genderId, prefferedGenderId, userName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO user (userId, matchId, sportsId, firstName, lastName, password, birthdate, description, state, email, phone, pictureURL, genderId, prefferedGenderId, userName) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->connect2()->prepare($sql);
         $stmt->execute([NULL,NULL,NULL,$var1,$var2,$hash,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12]);
         session_start();
