@@ -1,5 +1,6 @@
 <?php
     include 'includes/class-autoload.inc.php';
+    session_start();
     if (isset($_POST['submit'])){
 
         $var1 = $_POST[firstName];
@@ -81,6 +82,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Create Account</title>
+    <script src="./assets/jquery-3.6.0.min.js"></script>
+    <script src="./js/makeAcc.js"></script>
 </head>
     <body class="scrollable">
         <?php include "/includes/header.php"?>
@@ -107,7 +110,7 @@
                             <td><input type="date" class="createAccField" id="birthdate" name="birthdate" required/></td>
                         </tr>
                         <tr>
-                            <td><input type="text" class="createAccField" id="locationId" name="locationId" placeholder="Location" required/></td>
+                            <td><button class="createAccFieldBtn" onclick="getLocation()">Get location</button></td>
                         </tr>
                         <tr>
                             <td><input type="text" class="createAccField" id="description" name="description" placeholder="Description" required /></td>

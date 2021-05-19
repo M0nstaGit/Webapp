@@ -398,6 +398,27 @@ p {
     width: 20vw;
     background-color: white;
     margin-bottom: 3%;
+    z-index: 100;
+}
+
+.createAccFieldBtn {
+    font-family: 'Raleway';
+    font-size: 1.5vw;
+    color: #9e2a3d;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FF4363;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 1vw;
+    width: 20vw;
+    background-color: white;
+    margin-bottom: 3%;
+    z-index: 100;
+}
+
+.createAccFieldBtn:hover {
+    background-color: black;
 }
 
 .createAccField::placeholder {

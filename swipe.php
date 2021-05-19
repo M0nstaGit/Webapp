@@ -18,27 +18,16 @@
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/loadanimation.css">
         <link rel="shortcut icon" type="image/png" href="./images/sportbud.png">
-        <script src="./js/swipe.js"></script>
     </head>
 
     <body>
         <?php include_once 'includes/header.php'?>
 
         <?php 
-            // $users = new swipe();
-            // $users->grabsUsers();
+            $users = new swipe();
+            $users->grabsUsers();
         ?>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button onclick="getLocation()">Try It</button>
-        <p id="demo"></p>
-        <p>test</p>
         <img class="bottomscreen" src="./images/bot.png" alt="bottom">
     </body>
-    
+    <script src="./js/swipe.js"></script>
 </html>
