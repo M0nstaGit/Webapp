@@ -1,3 +1,78 @@
+<?php
+    include 'includes/class-autoload.inc.php';
+    if (isset($_POST['submit'])){
+
+        $var1 = $_POST[firstName];
+        $var2 = $_POST[lastName];
+        $var3 = $_POST[password];
+        $var4 = $_POST[birthdate];
+        $var5 = $_POST[description];
+        $var6 = $_POST[locationId];
+        $var7 = $_POST[email];
+        $var8 = $_POST[phone];
+        $var10 = $_POST[gender];
+        $var11 = $_POST[preferredGender];
+        $var12 = $_POST[userName];
+
+        
+        $file = $_FILES['file'];
+        $fileName = $_FILES['file']['name'];
+        $fileTmpName = $_FILES['file']['tmp_name'];
+        $fileSize = $_FILES['file']['size'];
+        $fileError = $_FILES['file']['error'];
+        $fileName = $_FILES['file']['type'];
+
+        $fileExt = explode('/', $fileName);
+
+        $fileActualExt = strtolower(end($fileExt));
+        $allowed = array('jpg','jpeg','png');
+
+        if (in_array($fileActualExt, $allowed)){
+            if ($fileError === 0){
+                if ($fileSize < 50000000){
+                    
+                    $fileNameNew = "sportbud-pf-".$var12.".".$fileActualExt;
+                    $fileDestination = '../profilepictures/'.$fileNameNew;
+                    $var9 = $fileDestination;
+                    // The hash of the password that
+                    // can be stored in the database
+                    $hash = password_hash($var3, PASSWORD_BCRYPT);
+
+                    $setuserobj = new user();
+                    $setuserobj->setuserstmt($var1,$var2,$hash,$var4,$var5,$var6,$var7,$var8,$var9,$var10,$var11,$var12);
+                    
+                    move_uploaded_file($fileTmpName, $fileDestination);
+                    header("Location: makesports.php");
+
+                }else{
+                    echo "File is too powerfull!";
+                }
+            }else{
+                echo "There was aan error uploading your file!";
+            }
+        }else{
+            echo "You cannot upload files of this type!";
+        }
+
+        
+        
+        
+        #$var1 = "test";
+        #$var2 = "test";
+        #$var3 = "test";
+        #$var4 = NULL;
+        #$var5 = "test";
+        #$var6 = 1;
+        #$var7 = "kak@gmail.com";
+        #$var8 = 0;
+        #$var9 = NULL;
+        #$var10 = 1;
+        #$var11 = 1;
+        #$var12 = "test";
+
+        
+    }  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +88,7 @@
             <h1>Create account</h1>
         </div>
         <main class="form">
-            <form class="formMargin" action="insert.php" method="POST">
+            <form class="formMargin" action="makeAccount.php" method="POST" enctype="multipart/form-data">
                 <table class="formTable m-auto">
                     <tbody>
                         <tr>
@@ -38,7 +113,7 @@
                             <td><input type="text" class="createAccField" id="description" name="description" placeholder="Description" required /></td>
                         </tr>
                         <tr>
-                            <td><input type="file" class="createAccField" id="pictureURL" name="pictureURL"/></td>
+                            <td><input type="file" class="createAccField" id="pictureURL" name="file"/></td>
                         </tr>
                         <tr>
                             <td><select class="createAccField" id="gender" name="gender">
@@ -59,7 +134,7 @@
                             <td><input type="password" id="password" name="password" class="createAccField" placeholder="Password" required/></td>
                         </tr>
                         <tr>
-                            <td><input type="submit" value="Continue" class="myButton"/></td>
+                            <td><input type="submit" value="Continue" name="submit" class="myButton"/></td>
                         </tr>
                     </tbody>
                 </table>

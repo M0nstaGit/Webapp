@@ -34,7 +34,7 @@
                         </tr>
                         <tr>
                             <td><input type="submit" value="Log in" class="myButton"/></td>
-                            </tr>
+                        </tr>
                                 
                     </tbody>
                 </table>
