@@ -5,6 +5,8 @@
     if(empty($_SESSION['username'])){
         header("Location: login.php");
     }
+
+    
 ?>
 <!-- Swipe page -->
 
@@ -30,4 +32,4 @@
         <img class="bottomscreen" src="./images/bot.png" alt="bottom">
     </body>
     <script src="./js/swipe.js"></script>
-</html>
+</html> 
