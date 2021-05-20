@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/loadanimation.css">
         <link rel="shortcut icon" type="image/png" href="./images/sportbud.png">
+        <script src="./assets/jquery-3.6.0.min.js"></script>
     </head>
 
     <body>
@@ -29,6 +30,7 @@
             <?php 
                 $users = new swipe();
                 $users->grabsUsers();
+                print_r($_SESSION['swipe']);
             ?>
         </div>
 

@@ -12,11 +12,12 @@ class swipe extends user {
         $stmt = $this->connect2()->prepare($sql);
         $stmt->execute([$userName, $prefgender]);
 
+        // GRABS CURRENTUSERID
+        $currentUserId = $this->getuserid();
 
+        // DISPLAYS ALL THE USERS THAT MATCH WITH FILTERS
         while($row = $stmt->fetch()){
-        
-        ?> 
-        
+        ?>
             <div class="swipe-card js-card">
                 <?php if ($row['pictureURL'] != NULL) {
                     ?>
@@ -24,8 +25,10 @@ class swipe extends user {
                     <?php
                 }
                 ?>
-                <h1><?php echo $row['firstName'] . " " . $row['userName'] ?></h1>
-                <p><?php echo $row['birthdate']?></p>
+                <input id="currentId" type="hidden" name="currentId" value="<?php echo $currentUserId ?>">
+                <input id="userId" type="hidden" name="userId" value="<?php echo $row['userId'] ?>">
+                <h1><?php echo $row['firstName'] . " " . $row['lastName'] ?></h1>
+                <p ><?php echo $row['birthdate']?></p>
                 <p><?php echo $row['description']?></p>
                 <div class="swipeButtons">
                     <button type="button" onclick="like()">Like</button>
@@ -61,4 +64,6 @@ class swipe extends user {
 // Grab user with correct gender and if not in relationstatus
 // if liked insert userId1 + userId2 relationstatus 1
 // --> disliked 0
+
+// SELECT * FROM user LEFT JOIN friends ON user.userId = friends.userId1 WHERE user.prefferedGenderId = 0 AND user.genderId = 1 AND relationStatus IS NULL
 ?>
