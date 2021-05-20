@@ -6,7 +6,14 @@
         header("Location: login.php");
     }
 
-    
+    echo $_POST;
+
+    //if (isset($_POST)){
+    //    
+    //    $users = new swipe();
+    //    $users->insertfriend(); 
+    //}
+
 ?>
 <!-- Swipe page -->
 
@@ -30,7 +37,6 @@
             <?php 
                 $users = new swipe();
                 $users->grabsUsers();
-                print_r($_SESSION['swipe']);
             ?>
         </div>
 

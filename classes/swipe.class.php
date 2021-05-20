@@ -7,17 +7,25 @@ class swipe extends user {
     public function grabsUsers() {
         $userName = $_SESSION['username'];
         $prefgender = $this->getprefgender();
-        $sql = "SELECT * FROM user WHERE userName != ? AND genderId = ?";
+        $gender = $this->getgender();
+        $sql = "SELECT * FROM user LEFT JOIN friends ON user.userId = friends.userId1 WHERE userName != ? AND user.prefferedGenderId = ? AND user.genderId = ? AND relationStatus IS NULL ORDER BY RAND()";
         
         $stmt = $this->connect2()->prepare($sql);
-        $stmt->execute([$userName, $prefgender]);
+        $stmt->execute([$userName, $gender ,$prefgender]);
 
         // GRABS CURRENTUSERID
         $currentUserId = $this->getuserid();
 
         // DISPLAYS ALL THE USERS THAT MATCH WITH FILTERS
         while($row = $stmt->fetch()){
-        ?>
+        $sql2 = "SELECT relationStatus FROM friends WHERE userId2 = ? AND userId1 = ? OR userId1 = ? AND userId2 = ?";
+        $stmt2 = $this->connect2()->prepare($sql2);
+        $stmt2->execute([$currentUserId,$row['userId'],$currentUserId,$row['userId']]);
+        $row2 = $stmt2->fetch();
+
+        if ($row2['relationStatus'] == NULL){
+            //var_dump($row2);
+            ?>
             <div class="swipe-card js-card">
                 <?php if ($row['pictureURL'] != NULL) {
                     ?>
@@ -30,12 +38,14 @@ class swipe extends user {
                 <h1><?php echo $row['firstName'] . " " . $row['lastName'] ?></h1>
                 <p ><?php echo $row['birthdate']?></p>
                 <p><?php echo $row['description']?></p>
+                <p><?php echo $row['userId']?></p>
                 <div class="swipeButtons">
                     <button type="button" onclick="like()">Like</button>
                     <button type="button" onclick="dislike()">Dislike</button>
                 </div>
             </div>
-        <?php
+        <?php }
+
         }
     }
 
@@ -57,6 +67,16 @@ class swipe extends user {
             echo $row['relationStatus'];
         }
     }
+
+    public function insertfriend(){
+        $cur = $_SESSION['swipe']['current'];  
+        $id = $_SESSION['swipe']['id'];
+        $rel = $_SESSION['swipe']['relation']; 
+
+        $sql = "INSERT INTO friends (userId1, userId2, relationStatus) VALUES (?,?,?)";
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$cur,$id ,$rel]);
+    }
 }
 ?>
 
@@ -65,5 +85,6 @@ class swipe extends user {
 // if liked insert userId1 + userId2 relationstatus 1
 // --> disliked 0
 
-// SELECT * FROM user LEFT JOIN friends ON user.userId = friends.userId1 WHERE user.prefferedGenderId = 0 AND user.genderId = 1 AND relationStatus IS NULL
+// SELECT * FROM user LEFT JOIN friends ON user.userId = friends.userId1 WHERE user.prefferedGenderId = 0 AND user.genderId = 1 AND relationStatus IS NULL ORDER BY RAND() LIMIT 1
+// WORKING | $sql = "SELECT * FROM user WHERE userName != ? AND genderId = ?";
 ?>
