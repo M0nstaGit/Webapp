@@ -35,6 +35,25 @@ class swipe extends user {
         <?php
         }
     }
+
+    public function match($user1,$user2){
+
+        $sql = "SELECT relationStatus FROM friends WHERE userId2 = ? AND userId1 = ? OR userId1 = ? AND userId2 = ?";
+
+        # SELECT * FROM user LEFT JOIN friends ON user.userId = friends.userId1";
+
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$user1,$user2,$user1,$user2]);
+
+        $row = $stmt->fetch();
+
+        if ($row['relationStatus'] == NULL){
+            echo "NULL";
+        }
+        else{
+            echo $row['relationStatus'];
+        }
+    }
 }
 ?>
 
