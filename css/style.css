@@ -537,3 +537,11 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 .profilePicture {
     width: 100px;
 }
+
+.check {
+    font-family: 'Raleway';
+    font-size: larger;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    color: #9e2a3d;
+}
