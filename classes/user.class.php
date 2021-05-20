@@ -52,6 +52,7 @@ class user extends dbh {
         $stmt->execute([$_SESSION['username']]);
         $row = $stmt->fetch();
         $userId = $row['userId'];
+        //$userId = $row['userId'];
         
         return $userId;
     }
@@ -63,6 +64,26 @@ class user extends dbh {
         $stmt->execute([$var1,$var2]);
         
         header("Location: login.php");
+    }
+
+    public function getgender(){
+        $sql = "SELECT genderId FROM user WHERE userName = ?";
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$_SESSION['username']]);
+        $row = $stmt->fetch();
+        $genderId = $row['genderId'];
+        
+        return $genderId;
+    }
+
+    public function getprefgender(){
+        $sql = "SELECT prefferedGenderId FROM user WHERE userName = ?";
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$_SESSION['username']]);
+        $row = $stmt->fetch();
+        $prefgenderId = $row['prefferedGenderId'];
+        
+        return $prefgenderId;
     }
     
 }

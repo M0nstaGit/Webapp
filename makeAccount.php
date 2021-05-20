@@ -3,17 +3,17 @@
     session_start();
     if (isset($_POST['submit'])){
 
-        $var1 = $_POST[firstName];
-        $var2 = $_POST[lastName];
-        $var3 = $_POST[password];
-        $var4 = $_POST[birthdate];
-        $var5 = $_POST[description];
-        $var6 = $_SESSION['county'][name];
-        $var7 = $_POST[email];
-        $var8 = $_POST[phone];
-        $var10 = $_POST[gender];
-        $var11 = $_POST[preferredGender];
-        $var12 = $_POST[userName];
+        $var1 = $_POST['firstName'];
+        $var2 = $_POST['lastName'];
+        $var3 = $_POST['password'];
+        $var4 = $_POST['birthdate'];
+        $var5 = $_POST['description'];
+        $var6 = $_SESSION['county']['name'];
+        $var7 = $_POST['email'];
+        $var8 = $_POST['phone'];
+        $var10 = $_POST['gender'];
+        $var11 = $_POST['preferredGender'];
+        $var12 = $_POST['userName'];
 
         
         $file = $_FILES['file'];
@@ -115,12 +115,12 @@
                         <tr>
                             <td><input type="text" class="createAccField" id="description" name="description" placeholder="Description" required /></td>
                         </tr>
-                        <tr>
-                            <td><input type="file" class="createAccField" id="pictureURL" name="file"/></td>
-                        </tr>
+                        
                         <?php 
                         if ($msg != NULL){
                             echo'<tr><td><input type="file" class="createAccField" id="pictureURL" name="file"/>'.$msg.'</td></tr>';
+                        }else{
+                            echo'<tr><td><input type="file" class="createAccField" id="pictureURL" name="file"/></td></tr>';
                         }
                         ?>
                         <tr>

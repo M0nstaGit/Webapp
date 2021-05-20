@@ -1,10 +1,25 @@
-// var textBoxes = document.querySelectorAll('[id^=card]');
+var users = document.querySelectorAll('.js-card');
+var firstUser = document.querySelectorAll('.js-card')[0];
+firstUser.style.display = "block";
 
-// var firstUser = document.querySelectorAll('.js-card')[0];
-// firstUser.style.display = "none";
+var index = 1
 
-var x = document.getElementById("demo");
+function like() {
+    for (index; index < users.length; index++) {
+        firstUser.style.display = "none";
+        var currentUser = document.querySelectorAll('.js-card')[index];
+        currentUser.style.display = "block";
+    }
+}
 
-var x = document.getElementById("demo");
+function dislike() {
+    for (index; index < users.length; index++) {
+        firstUser.style.display = "none";
+        var currentUser = document.querySelectorAll('.js-card')[index];
+        currentUser.style.display = "block";
+    }
+}
+
+
 
 

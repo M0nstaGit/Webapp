@@ -527,5 +527,9 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 /* SWIPE */
 
 .swipe-card {
-    display: block;
+    display: none;
+}
+
+.profilePicture {
+    width: 100px;
 }

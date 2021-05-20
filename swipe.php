@@ -26,8 +26,8 @@
         <?php include_once 'includes/header.php'?>
 
         <?php 
-            // $users = new swipe();
-            // $users->grabsUsers();
+            $users = new swipe();
+            $users->grabsUsers();
         ?>
         <img class="bottomscreen" src="./images/bot.png" alt="bottom">
     </body>
