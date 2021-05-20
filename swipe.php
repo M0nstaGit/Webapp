@@ -25,10 +25,15 @@
     <body>
         <?php include_once 'includes/header.php'?>
 
-        <?php 
-            $users = new swipe();
-            $users->grabsUsers();
-        ?>
+        <div class="allUsers">
+            <?php 
+                $users = new swipe();
+                $users->grabsUsers();
+            ?>
+        </div>
+
+        <p id="noMore"></p>
+
         <img class="bottomscreen" src="./images/bot.png" alt="bottom">
     </body>
     <script src="./js/swipe.js"></script>
