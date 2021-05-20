@@ -526,6 +526,10 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 /* SWIPE */
 
+.allUsers {
+    margin-top: 300px;
+}
+
 .swipe-card {
     display: none;
 }
