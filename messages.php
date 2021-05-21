@@ -5,6 +5,14 @@
     if(empty($_SESSION['username'])){
         header("Location: login.php");
     }
+    $currentUserId = new user()
+    $currentUserId->getuserid();
+
+    $friendIds = new messages();
+    $friendIds->getFriends();
+
+    $friendNames = new messages();
+    $friendNames->getNames($friendIds)
 ?>
 <!-- Messages page -->
 
@@ -24,6 +32,7 @@
         <?php include_once 'includes/header.php'?>
         
         <div class="messagePreview" id="messagePreview">
+            
         </div>
 
        
@@ -34,16 +43,13 @@
         <script>
             var friends,flen,text,i;
 
-            friends = [
-                ["30","test2"]
-            ];
+            friends = "<?php echo $friendNames; ?>";
             fLen = friends.length;
             
             text = '<div class="friendDisplay">';
             for (i = 0; i < fLen; i++) {
             
-                text += '<a href="messagesPersonal.php" id="linkMessagesPersonal" class="friend">' + messages[i][1] + "</a>";
-                
+                text += '<a href="messagesPersonal.php" id="'i'" class="friend">' + friends[i] + '</a>';
             }
             text += "</div>";
 

@@ -1,9 +1,19 @@
 <?php
     session_start();
-
+    include 'includes/class-autoload.inc.php';
     if(empty($_SESSION['username'])){
         header("Location: login.php");
     }
+    $currentUserId = new user()
+    $currentUserId->getuserid();
+
+    //$friendUserId = new messages();
+    //$friendUserId = doorgegeven friendId
+
+    $allMessages = new messages();
+    $allMessages->getMessages($curruntUserId,$friendUserId)
+
+    
 ?>
 <!-- Messages page -->
 
@@ -27,11 +37,18 @@
 
         <div class="sendMessages">
         <!--sending message prototype-->
+        
+        <form class="messageInputBox" action="insertMessages.php" method="POST">
+            <input type="text" class="messageinput" id="messageinput" name="messageinput" placeholder="Start typing here" required>
+            <input type="submit" value="Send">
+        </form>
+
+
         <table class="tableLogIn">
                     <tbody>
                         <tr>
                             <td><label for="messageInput"></label></td>
-                            <td><input type="text" class="messageInput" name="messageInput" placeholder="message" required/></td>
+                            <td><input type="text" class="messageInput" id="messageInput" name="messageInput" placeholder="message" required/></td>
                        
                             <td><input type="submit" value="send"/></td>
                         </tr>
@@ -48,20 +65,7 @@
             const IdUser2 = 2;
             var messages,mlen,text,i;
 
-            messages = [
-                [2,"by Other User"],
-                [2,"by Other User"],
-                [2,"by Other User"],
-                [1,"By this User, first"],
-                [1,"By this User, second"],
-                [1,"By this User, third"],
-                [2,"by Other User"],
-                [2,"by Other User"],
-                [2,"by Other User"],
-                [1,"By this User, first"],
-                [1,"By this User, second"],
-                [1,"By this User, third"]
-            ];
+            messages = "<?php echo $allMessages; ?>";
             mLen = messages.length;
             
             text = "<ul>";
