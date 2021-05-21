@@ -46,9 +46,6 @@
   <body>
     <?php include_once 'includes/header.php'?>
     <div class="calendarDiv">
-        <!-- Renders the calendar -->
-        <div class="calendar" id='calendar'></div>
-
         <!-- Sends post to OO -->
         <form action="./addEvent.php" class="formEvent" method="POST">
             <p>Add an event to your calendar!</p>
@@ -66,6 +63,11 @@
                 </tbody>
             </table>
         </form>
+
+        <!-- Renders the calendar -->
+        <div class="calendar" id='calendar'></div>
+
+        <div class="empty"></div>
     </div>
     <footer>
       <img class="bottomscreen" src="./images/bot.png" alt="bottom">
