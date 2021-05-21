@@ -1,9 +1,14 @@
-var users = document.querySelectorAll('.js-card');
-var firstUser = document.querySelectorAll('.js-card')[0];
-firstUser.style.display = "block";
+try {
+    var users = document.querySelectorAll('.js-card');
+    var firstUser = document.querySelectorAll('.js-card')[0];
+    firstUser.style.display = "block";
 
-var index = 0;
-var userLength = document.querySelectorAll(".js-card").length;
+    var index = 0;
+    var userLength = document.querySelectorAll(".js-card").length;
+}
+catch(err) {
+    document.getElementById("noMore").innerHTML = "There are no more people left to swipe";
+}
 
 function like() {
     var currentUser = document.querySelectorAll('.js-card')[index];
@@ -61,7 +66,7 @@ function ajaxSendTo(userInfo) {
         data: userInfo,
         error: console.error,
         success: function(res) {
-            console.log(res);
+            console.log(userInfo);
         }
         
     })
