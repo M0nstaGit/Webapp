@@ -6,13 +6,12 @@
         header("Location: login.php");
     }
 
-    echo $_POST;
 
-    //if (isset($_POST)){
-    //    
-    //    $users = new swipe();
-    //    $users->insertfriend(); 
-    //}
+    if (isset($_POST)){
+        
+        $users = new swipe();
+        $users->insertfriend($_POST["current"],$_POST["id"],$_POST["relation"]); 
+    }
 
 ?>
 <!-- Swipe page -->

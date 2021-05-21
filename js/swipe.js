@@ -61,7 +61,7 @@ function ajaxSendTo(userInfo) {
         data: userInfo,
         error: console.error,
         success: function(res) {
-            console.log(userInfo);
+            console.log(res);
         }
         
     })

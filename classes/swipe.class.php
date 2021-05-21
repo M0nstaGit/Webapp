@@ -68,11 +68,7 @@ class swipe extends user {
         }
     }
 
-    public function insertfriend(){
-        $cur = $_SESSION['swipe']['current'];  
-        $id = $_SESSION['swipe']['id'];
-        $rel = $_SESSION['swipe']['relation']; 
-
+    public function insertfriend($cur,$id,$rel){
         $sql = "INSERT INTO friends (userId1, userId2, relationStatus) VALUES (?,?,?)";
         $stmt = $this->connect2()->prepare($sql);
         $stmt->execute([$cur,$id ,$rel]);
