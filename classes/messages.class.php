@@ -1,6 +1,6 @@
 <?php
 
-class messages extends dbh {
+class messages extends user {
 
 
     //GETS ALL ID'S FROM CURRENT USERS FRIENDS
@@ -23,7 +23,7 @@ class messages extends dbh {
 
         $stmt = $this->connect2()->prepare($sql);
 
-        $stmt->execute([$friendId])
+        $stmt->execute([$friendId]);
 
         $friendNames = $stmt->fetchall();
         return $names;
