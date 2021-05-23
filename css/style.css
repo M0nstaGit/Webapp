@@ -550,7 +550,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     display: none;
     width: 60vw;
     max-width: 400px;
-    height: 60vh;
+    height: fit-content;
     background: white;
     padding-bottom: 40px;
     border-radius: 20px;
