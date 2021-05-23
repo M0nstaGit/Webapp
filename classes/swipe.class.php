@@ -35,10 +35,10 @@ class swipe extends user {
                 ?>
                 <input id="currentId" type="hidden" name="currentId" value="<?php echo $currentUserId ?>">
                 <input id="userId" type="hidden" name="userId" value="<?php echo $row['userId'] ?>">
-                <h1><?php echo $row['firstName'] . " " . $row['lastName'] ?></h1>
-                <p ><?php echo $row['birthdate']?></p>
-                <p><?php echo $row['description']?></p>
-                <p><?php echo $row['userId']?></p>
+                <h1 class="profileName"><?php echo $row['firstName'] . " " . $row['lastName'] ?></h1>
+                <p class="profileInfo"><?php echo $row['birthdate']?></p>
+                <p class="profileInfo"><?php echo $row['description']?></p>
+                <p class="profileInfo"><?php echo $row['userId']?></p>
                 <div class="swipeButtons">
                     <button type="button" onclick="like()">Like</button>
                     <button type="button" onclick="dislike()">Dislike</button>
