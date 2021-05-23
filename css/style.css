@@ -583,3 +583,10 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     max-width: 100%;
 }
 
+.check {
+    font-family: 'Raleway';
+    font-size: larger;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    color: #9e2a3d;
+}
