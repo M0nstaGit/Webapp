@@ -620,3 +620,45 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
     margin-bottom: 1vh;
     text-shadow: 1px 1px 3px rgba(134, 134, 134, 0.5);
 }
+
+.friendsWrapper {
+    position: fixed;
+    right: 25vw;
+    top: 15%;
+    font-family: 'Raleway';
+    height: fit-content;
+    width: fit-content;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #adadad2c;
+}
+
+.friendsWrapper:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.tableFriends {
+    margin: 3vh;
+}
+
+tr {
+    font-family: 'Raleway';
+    font-size: large;
+    color: #555;
+    transition: color 0.3s ease-in-out;
+}
+
+tr:hover{
+    color: rgba(255,67,99,1);
+}
+
+td {
+    font-size: medium;
+    color:rgba(134, 134, 134, 1);
+    transition: color 0.3s ease-in-out;
+}
+
+td:hover{
+    color:#9e2a3d;
+}

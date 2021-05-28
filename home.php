@@ -36,8 +36,8 @@
                 <button type="submit">Continue</button>
             </form>
 
-            <div> <!-- friends on homepage !-->
-                <table>
+            <div class="friendsWrapper"> <!-- friends on homepage !-->
+                <table class="tableFriends">
                     <tr>
                         <th>Your friends</th>
                     </tr>
@@ -60,7 +60,7 @@
                         }    
                     ?>
                 </table>  
-                </div>
+            </div>
         </div>
 
         
