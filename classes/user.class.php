@@ -11,6 +11,16 @@ class user extends dbh {
         }
     }
 
+    public function getAllData(){
+        $sql = "SELECT userId,firstName,lastName,birthdate,description,state,email,phone,genderId,prefferedGenderId,userName FROM user WHERE userId = ?";
+        $stmt = $this->connect2()->prepare($sql);
+        $userid = $this->getuserid();
+        $stmt->execute([$userid]);
+        $row = $stmt->fetchAll();
+
+        return $row;
+    }
+
     public function getusername($friendsid){
         $sql = "SELECT userName FROM user WHERE userId = ?";
 
