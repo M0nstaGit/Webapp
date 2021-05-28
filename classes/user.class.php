@@ -11,6 +11,17 @@ class user extends dbh {
         }
     }
 
+    public function getusername($friendsid){
+        $sql = "SELECT userName FROM user WHERE userId = ?";
+
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$friendsid]);
+        $row = $stmt->fetch();
+        $friend = $row['userName'];
+
+        return $friend;
+    }
+
     public function checkpass(){
         $userNameInput = $_POST['userNameInput'];
         $passwordInput = $_POST['passwordInput'];
@@ -84,6 +95,30 @@ class user extends dbh {
         $prefgenderId = $row['prefferedGenderId'];
         
         return $prefgenderId;
+    }
+
+    public function getfriends1(){
+        $userId = $this->getuserid();
+
+        $sql = "SELECT userId2 FROM friends WHERE userId1 = ? AND relationStatus = 1 LIMIT 5";
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$userId]);
+
+        $friends = $stmt->fetchall();
+        
+        return $friends;
+    }
+
+    public function getfriends2(){
+        $userId = $this->getuserid();
+
+        $sql = "SELECT userId1 FROM friends WHERE userId2 = ? AND relationStatus = 1 LIMIT 5";
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$userId]);
+
+        $friends = $stmt->fetchall();
+        
+        return $friends;
     }
     
 }

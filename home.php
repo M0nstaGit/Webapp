@@ -1,4 +1,5 @@
 <?php
+    include 'includes/class-autoload.inc.php';
     session_start();
 
     if(empty($_SESSION['username'])){
@@ -34,7 +35,35 @@
             <form method="get" action="/logOut.php">
                 <button type="submit">Continue</button>
             </form>
+
+            <div> <!-- friends on homepage !-->
+                <table>
+                    <tr>
+                        <th>Your friends</th>
+                    </tr>
+                    <?php
+                        $userobj = new user();
+                        $ids = $userobj->getfriends1();
+    
+                        foreach ($ids as $row){
+                            $friendsid = $row["userId2"];
+                            $friend = $userobj->getusername($friendsid);
+                            echo "<tr><td>".$friend."</td></tr>";
+                        }
+                    
+                        $ids = $userobj->getfriends2();
+                    
+                        foreach ($ids as $row){
+                            $friendsid = $row["userId1"];
+                            $friend = $userobj->getusername($friendsid);
+                            echo "<tr><td>".$friend."</td></tr>";
+                        }    
+                    ?>
+                </table>  
+                </div>
         </div>
+
+        
 
         <!-- <div class="loadercontainer" id="hidediv">
             <span class="loader"><span class="loader-inner"></span></span>
