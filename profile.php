@@ -32,7 +32,47 @@
 
             <h2>These are your account details</h2>
 
-            
+            <?php
+                $userobj = new user();
+                $data = $userobj->getAllData();
+
+                foreach ($data as $val){
+                    echo "Username: ".$val["userName"];
+                    echo "<br>";
+                    echo "Firstname: ".$val["firstName"];
+                    echo "<br>";
+                    echo "Lastname: ".$val["lastName"];
+                    echo "<br>";
+                    echo "Birthdate: ".$val["birthdate"];
+                    echo "<br>";
+                    echo "Profile description: ".$val["description"];
+                    echo "<br>";
+                    echo "State: ".$val["state"];
+                    echo "<br>";
+                    echo "e-mail: ".$val["email"];
+                    echo "<br>";
+                    echo "Phone number: ".$val["phone"];
+                    echo "<br>";
+                    
+                    if ($val["genderId"] == 0){
+                        echo "Gender: Male";
+                    }
+                    else if ($val["genderId"] == 1){
+                        echo "Gender: Female";
+                    }
+
+                    echo "<br>";
+
+                    if ($val["prefferedGenderId"] == 0){
+                        echo "Preffered gender: Male";
+                    }
+                    else if ($val["prefferedGenderId"] == 1){
+                        echo "Preffered gender: Female";
+                    }
+                    
+                    
+                }
+            ?>
 
             <!-- LOG OUT -->
             <form method="get" action="/logOut.php">

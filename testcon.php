@@ -29,15 +29,25 @@ echo "<br>";
 
 foreach ($data as $val){
     echo $val["userName"];
+    echo "<br>";
     echo $val["firstName"];
+    echo "<br>";
     echo $val["lastName"];
+    echo "<br>";
     echo $val["birthdate"];
+    echo "<br>";
     echo $val["description"];
+    echo "<br>";
     echo $val["state"];
+    echo "<br>";
     echo $val["email"];
+    echo "<br>";
     echo $val["phone"];
+    echo "<br>";
     echo $val["genderId"];
+    echo "<br>";
     echo $val["prefferedGenderId"];
+    echo "<br>";
 }
 
 ?>
