@@ -20,35 +20,48 @@ include 'includes/class-autoload.inc.php';
 #    $friend = $userobj->getusername($friendsid);
 #    echo $friend;
 #}
-$userobj = new user();
-$data = $userobj->getAllData();
+function object_to_array($data)
+{
+    if(is_array($data) || is_object($data))
+    {
+        $result = array();
+    
+        foreach($data as $key => $value) {
+            $result[$key] = object_to_array($value);
+        }
+    
+        return $result;
+    }
 
-var_dump($data);
+    return $data;
+}
+
+$currentUserId = new user();
+$currentUserId->getuserid();
+
+$friendIds = new messages();
+$ids = $friendIds->getFriends();
+
+$friendIdsArray = object_to_array($ids);
+var_dump($friendIdsArray);
 
 echo "<br>";
+echo "<br>";
 
-foreach ($data as $val){
-    echo $val["userName"];
-    echo "<br>";
-    echo $val["firstName"];
-    echo "<br>";
-    echo $val["lastName"];
-    echo "<br>";
-    echo $val["birthdate"];
-    echo "<br>";
-    echo $val["description"];
-    echo "<br>";
-    echo $val["state"];
-    echo "<br>";
-    echo $val["email"];
-    echo "<br>";
-    echo $val["phone"];
-    echo "<br>";
-    echo $val["genderId"];
-    echo "<br>";
-    echo $val["prefferedGenderId"];
+foreach ($friendIdsArray as $friendid){
+    if (key_exists("userId2",$friendid)){
+        echo $friendid["userId2"];
+    }
+    else{
+        echo $friendid["userId1"];
+    }
     echo "<br>";
 }
+
+$friendNames = new messages();
+$names = $friendNames->getNames();
+
+var_dump($names);
 
 ?>
  

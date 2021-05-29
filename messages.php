@@ -16,7 +16,7 @@
             $result = array();
         
             foreach($data as $key => $value) {
-                $result[$key] = $this->object_to_array($value);
+                $result[$key] = object_to_array($value);
             }
         
             return $result;
@@ -25,19 +25,17 @@
         return $data;
     }
 
-    $currentUserId = new user();
-    $currentUserId->getuserid();
 
     $friendIds = new messages();
     $friendIds->getFriends();
     $friendIdsArray = object_to_array($friendIds);
     var_dump( (array) $friendIdsArray);
 
-    $friendNames = new messages();
-    $friendNames->getNames($friendIds);
-    $friendNamesArray = object_to_array($friendNames);
-    
-    var_dump( (array) $friendNamesArray );
+    #$friendNames = new messages();
+    #$friendNames->getNames($friendIds);
+    #$friendNamesArray = object_to_array($friendNames);
+    #
+    #var_dump( (array) $friendNamesArray );
 
 
     
@@ -72,7 +70,7 @@
 
 
         <script>
-            var friends = document.querySelector('friendNamesArray')
+            //var friends = document.querySelector('friendNamesArray')
             var flen,text,i;
 
             //friends = ["jonas","vantrappen",
@@ -82,20 +80,16 @@
             console.log(friends);
 
             fLen = friends.length;
+
+            console.log(fLen);
             
             text = '<div class="friendDisplay">';
             for (i = 0; i < fLen; i=i+2) {
                 console.log("we zitten in de FOR1");
                 var j = 0;
-                text += '<a href="messagesPersonal.php" id="'+ j +'" class="friend">';
-                for (k = 0; k < flen; k=k+1){
-                    console.log("we zitten in de FOR2");
-                    if(k==null){
-                        console.log("we zitten in de if == null");
-                        break
-                    }
-                    text += friends[i][k]
-                }
+                text += '<a href="messagesPersonal.php" id="'+ friendIdsArray[j] +'" class="friend">';
+                
+                text += friends[i]
                 text += '</a>';
                 j++;
             }

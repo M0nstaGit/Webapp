@@ -16,18 +16,28 @@ class messages extends user {
     }
 
     //GETS ALL THE NAMES OF THE IDS THE GETFRIENDS FUNCTION FILTERED OUT
-    public function getNames(){
-        //GETS CURRENT USER
-        $currentUserId = $this->getuserid();
+    public function getfriends1(){
+        $userId = $this->getuserid();
 
-        $sqlUserId = "SELECT firstName,lastName FROM user WHERE userId = (SELECT userId1 FROM friends WHERE userId1 = $currentUserId AND relationStatus = 1 OR userId2 = $currentUserId AND relationStatus = 1)";
+        $sql = "SELECT userId2 FROM friends WHERE userId1 = ? AND relationStatus = 1";
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$userId]);
 
-        $stmtUserId = $this->connect2()->prepare($sqlUserId);
+        $friends = $stmt->fetchall();
+        
+        return $friends;
+    }
 
-        $stmtUserId->execute();
+    public function getfriends2(){
+        $userId = $this->getuserid();
 
-        $friendNames = $stmtUserId->fetchall();
-        return $friendNames;
+        $sql = "SELECT userId1 FROM friends WHERE userId2 = ? AND relationStatus = 1";
+        $stmt = $this->connect2()->prepare($sql);
+        $stmt->execute([$userId]);
+
+        $friends = $stmt->fetchall();
+        
+        return $friends;
     }
 
     //GETS ALL THE MESSAGES OF THE CURRENTUSER AND THE SELECTED FRIEND
@@ -37,7 +47,7 @@ class messages extends user {
 
         $stmtMessages = $this->connect2()->prepare($sqlMessages);
 
-        $stmtMessages->execute([$user1,$user2,$user1,$user2]);
+        $stmtMessages->execute([$userId1,$userId2,$userId1,$userId2]);
 
         $messages = $stmtMessages->fetchall();
         //WE ONLY NEED USERID1 BECAUSE THE PREVIOUS SQL STATEMENT ONLY FILTERED OUT THE MESSAGES THE USER AND THE SELECTED FRIEND SEND TO EACHOTHER
