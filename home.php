@@ -31,10 +31,10 @@
             ?>
             <h2>You sported for $Time hours this week</h2>
 
-            <!-- LOG OUT -->
+            <!-- LOG OUT
             <form method="get" action="/logOut.php">
                 <button type="submit">Continue</button>
-            </form>
+            </form> -->
 
             <div class="friendsWrapper"> <!-- friends on homepage !-->
                 <table class="tableFriends">
