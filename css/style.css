@@ -689,6 +689,12 @@ td:hover{
 
 #profileButton {
     margin-bottom: 0px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#profileButton:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .marginProfile {
