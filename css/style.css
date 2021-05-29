@@ -662,3 +662,35 @@ td {
 td:hover{
     color:#9e2a3d;
 }
+
+.profileInfo {
+    font-family: 'Raleway';
+    font-size: medium;
+}
+
+.profileWrapper {
+    margin: 0;
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #adadad2c;
+}
+
+.profileWrapper:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#profileButton {
+    margin-bottom: 0px;
+}
+
+.marginProfile {
+    margin: 10%;
+}

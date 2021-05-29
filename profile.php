@@ -23,15 +23,17 @@
     <body>
         <?php include_once 'includes/header.php'?>
 
-        <div class="wrapperwelcomemessage">
+        <div class="profileWrapper">
+            <div class="marginProfile">
+
             <!-- <h1>Welcome, $Name!</h1> -->
             <?php 
             $Name = $_SESSION['username'];
             echo "<h1>Hi, $Name!</h1>";
             ?>
 
-            <h2>These are your account details</h2>
-
+            <h2>These are your account details:</h2>
+            <div class="profileInfo">
             <?php
                 $userobj = new user();
                 $data = $userobj->getAllData();
@@ -73,12 +75,14 @@
                     
                 }
             ?>
+            </div>
 
             <!-- LOG OUT -->
             <form method="get" action="/logOut.php">
-                <button type="submit">Log out</button>
+                <button id="profileButton" class="myButton" type="submit">Log out</button>
             </form>
-
+        </div>
+        </div>
         <!-- <div class="loadercontainer" id="hidediv">
             <span class="loader"><span class="loader-inner"></span></span>
         </div> -->

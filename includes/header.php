@@ -15,5 +15,8 @@
         <a class="btn" href='messages.php'>
             <img src='images/icons/send.png' alt="Messages icon">
         </a>
+        <a class="btn" href='profile.php'>
+            <img src='images/icons/account.png' alt="Profile icon">
+        </a>
     </div>
 </div>
