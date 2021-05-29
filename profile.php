@@ -78,7 +78,7 @@
             </div>
 
             <!-- LOG OUT -->
-            <form method="get" action="/logOut.php">
+            <form method="get" action="/WebApp/logOut.php">
                 <button id="profileButton" class="myButton" type="submit">Log out</button>
             </form>
         </div>
